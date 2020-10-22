@@ -1,2 +1,2 @@
 # term_table
-library for wrawing tables using symbols
+library for drawing tables using symbols
