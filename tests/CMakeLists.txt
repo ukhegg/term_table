@@ -9,7 +9,7 @@ FetchContent_MakeAvailable(fakeit)
 
 set(SOURCE_FILES
         src/main.cpp
-        src/grid_tests.cpp src/term_table_tests.cpp)
+        src/grid_tests.cpp src/term_table_tests.cpp src/string_vector_canvas_tests.cpp)
 
 SOURCE_GROUP(TREE ${PROJECT_SOURCE_DIR} FILES ${SOURCE_FILES})
 

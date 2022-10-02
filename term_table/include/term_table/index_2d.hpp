@@ -16,6 +16,8 @@ namespace term_table
 
         index_2d(row_index_t row, column_index_t column);
 
+        index_2d(column_index_t column, row_index_t row);
+        
         row_index_t row() const;
 
         column_index_t column() const;

@@ -75,7 +75,8 @@ namespace term_table
             return result;
         }
 
-        integer_index_t operator+=(int delta){
+        integer_index_t operator+=(int delta)
+        {
             this->value_ += delta;
             return *this;
         }
@@ -87,6 +88,22 @@ namespace term_table
 
     private:
         size_t value_{0};
+    };
+
+    template<class TTag>
+    class integer_index_diff_t
+    {
+    public:
+        integer_index_diff_t()
+        {
+        }
+
+        explicit integer_index_diff_t(long value) : value_(value)
+        {
+        }
+
+    private:
+        long value_{0};
     };
 }
 

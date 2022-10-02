@@ -5,9 +5,11 @@
 #pragma once
 
 #include "term_table/i_canvas.hpp"
+#include "term_table/index_2d.hpp"
 
 #include <vector>
 #include <string>
+#include <map>
 
 namespace term_table
 {
@@ -16,9 +18,14 @@ namespace term_table
     public:
         void put(row_index_t row, column_index_t column, char symbol) override;
 
-        const std::vector<std::string> &lines() const;
+        std::vector<std::string> lines() const;
     private:
-        size_t line_width_{0};
-        std::vector<std::string> lines_;
+        row_index_t min_row_{0};
+        row_index_t max_row_{0};
+        column_index_t min_column_{0};
+        column_index_t max_column_{0};
+        std::map<index_2d, char> symbols_;
+
+        void update_boundaries(row_index_t row, column_index_t column);
     };
 }
