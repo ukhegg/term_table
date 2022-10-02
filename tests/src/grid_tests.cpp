@@ -4,13 +4,16 @@
 
 #include <catch2/catch.hpp>
 
-#include <term_table/grid.hpp>
+#include <term_table/grid_t.hpp>
+
 using namespace term_table;
 
-
-TEST_CASE("grid tests", "default created grid has size of 0x0")
+namespace term_table::tests
 {
-	grid g;
-	REQUIRE(g.height() == 0);
-	REQUIRE(g.width() == 0);
+    TEST_CASE("grid_t tests")
+    {
+        grid_t g;
+        REQUIRE(g.rows_count() == 0);
+        REQUIRE(g.columns_count() == 0);
+    }
 }
