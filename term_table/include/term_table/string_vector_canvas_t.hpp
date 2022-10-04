@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "term_table/i_canvas.hpp"
+#include "term_table/i_canvas_area.hpp"
 #include "term_table/index_2d.hpp"
 
 #include <vector>
@@ -13,10 +13,14 @@
 
 namespace term_table
 {
-    class string_vector_canvas_t : public i_canvas
+    class string_vector_canvas_t : public i_canvas_area
     {
     public:
         void put(row_index_t row, column_index_t column, char symbol) override;
+
+        size_t width() override;
+
+        size_t height() override;
 
         std::vector<std::string> lines() const;
     private:

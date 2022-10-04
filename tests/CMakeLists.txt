@@ -13,6 +13,6 @@ set(SOURCE_FILES
 
 SOURCE_GROUP(TREE ${PROJECT_SOURCE_DIR} FILES ${SOURCE_FILES})
 
-add_executable(tests ${SOURCE_FILES})
-target_include_directories(tests PRIVATE ${term_table_SOURCE_DIR}/include)
-target_link_libraries(tests term_table Catch2::Catch2WithMain )
+add_executable(${PROJECT_NAME} ${SOURCE_FILES})
+target_include_directories(${PROJECT_NAME} PRIVATE ${term_table_SOURCE_DIR}/include)
+target_link_libraries(${PROJECT_NAME} term_table Catch2::Catch2WithMain )

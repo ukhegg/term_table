@@ -10,7 +10,7 @@
 #include "term_table/table_cell_t.hpp"
 #include "term_table/keywords/table_keywords.hpp"
 #include "term_table/internal/table_builder_t.hpp"
-#include "term_table/i_canvas.hpp"
+#include "term_table/i_visual.hpp"
 
 namespace term_table
 {
@@ -19,7 +19,7 @@ namespace term_table
         class table_data_t;
     }
 
-    class TERM_TABLE_API table_t
+    class TERM_TABLE_API table_t : public i_visual
     {
     public:
         table_t();
@@ -40,7 +40,21 @@ namespace term_table
 
         size_t columns_count() const;
 
-        void draw(i_canvas& canvas);
+
+        size_t min_width() override;
+
+        size_t min_height() override;
+
+        size_t width() override;
+
+        size_t height() override;
+
+        size_t max_width() override;
+
+        size_t max_height() override;
+
+        void draw(i_canvas_area &canvas) override;
+
     private:
         using table_data_ptr = std::shared_ptr<internal::table_data_t>;
 

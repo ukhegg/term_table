@@ -12,12 +12,12 @@ namespace term_table
     }
 
     index_2d::index_2d(row_index_t row, column_index_t column)
-            : row_(row.value()), column_(column.value())
+            : row_(row.index()), column_(column.index())
     {
     }
 
     index_2d::index_2d(column_index_t column, row_index_t row)
-            : row_(row.value()), column_(column.value())
+            : row_(row.index()), column_(column.index())
     {
 
     }

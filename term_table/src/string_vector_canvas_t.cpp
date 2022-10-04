@@ -2,6 +2,7 @@
 // Created by Zeliukin Nick on 13.09.22.
 //
 
+#include <limits>
 #include "term_table/string_vector_canvas_t.hpp"
 
 namespace term_table
@@ -16,8 +17,8 @@ namespace term_table
     {
         if (this->symbols_.empty()) return {};
 
-        auto width = this->max_column_.value() - this->min_column_.value() + 1;
-        auto height = this->max_row_.value() - this->min_row_.value() + 1;
+        auto width = this->max_column_.index() - this->min_column_.index() + 1;
+        auto height = this->max_row_.index() - this->min_row_.index() + 1;
 
         std::vector<std::string> result(height);
         for (auto &line: result) {
@@ -25,8 +26,8 @@ namespace term_table
         }
 
         for (auto [index, symbol]: this->symbols_) {
-            result.at(index.row().value() - this->min_row_.value())
-                    .at(index.column().value() - this->min_column_.value()) = symbol;
+            result.at(index.row().index() - this->min_row_.index())
+                    .at(index.column().index() - this->min_column_.index()) = symbol;
         }
         return result;
     }
@@ -42,5 +43,13 @@ namespace term_table
             this->min_column_ = std::min(column, this->min_column_);
             this->max_column_ = std::max(column, this->max_column_);
         }
+    }
+
+    size_t string_vector_canvas_t::width() {
+        return std::numeric_limits<size_t>::max();
+    }
+
+    size_t string_vector_canvas_t::height() {
+        return std::numeric_limits<size_t>::max();
     }
 }

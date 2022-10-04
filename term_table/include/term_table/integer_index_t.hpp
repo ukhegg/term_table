@@ -81,7 +81,7 @@ namespace term_table
             return *this;
         }
 
-        size_t value() const
+        size_t index() const
         {
             return value_;
         }
